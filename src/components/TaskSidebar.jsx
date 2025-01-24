@@ -40,13 +40,13 @@ const TaskSidebar = () => {
             {/* Footer */}
             <div className="flex justify-between items-center text-gray-900 dark:text-gray-200 mt-6 border-t border-gray-300 dark:border-gray-600 pt-4">
                 <button className="text-xl">
-                    <span className="sr-only">Close</span>
-                    <AiOutlineDelete />
+                    <span className="sr-only">Delete</span>
+                    <FaPlus />
                 </button>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Created Today</p>
                 <button className="text-xl">
-                    <span className="sr-only">Delete</span>
-                    <FaPlus />
+                    <span className="sr-only">Close</span>
+                    <AiOutlineDelete />
                 </button>
             </div>
         </aside>

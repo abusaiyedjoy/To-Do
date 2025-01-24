@@ -7,14 +7,12 @@ import logo from "./assets/logo.png";
 import Sidebar from "./components/Sidebar";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { TfiMenuAlt } from "react-icons/tfi";
-import TaskSidebar from "./components/TaskSidebar";
 import TextSection from "./components/TextSection";
 import { RxCross2 } from "react-icons/rx";
 
 const Home = ({ onLogout, user }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [showSidebar, setShowSidebar] = useState(true); 
-  const [showTaskSidebar, setShowTaskSidebar] = useState(true); 
 
   return (
     <div
@@ -41,9 +39,7 @@ const Home = ({ onLogout, user }) => {
             {/* Toggle TaskSidebar */}
             <div className="cursor-pointer">
               <LuLayoutDashboard
-                size={20}
-                onClick={() => setShowTaskSidebar((prev) => !prev)}
-              />
+                size={20}/>
             </div>
             <button onClick={() => setDarkMode(!darkMode)} className="">
               {darkMode ? (
@@ -62,9 +58,6 @@ const Home = ({ onLogout, user }) => {
 
           {/* Tasks Section */}
           <TextSection />
-
-          {/* TaskSidebar */}
-          {showTaskSidebar && <TaskSidebar />}
         </main>
       </div>
     </div>
