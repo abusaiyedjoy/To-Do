@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Login from "./Pages/Login";
-import Home from "./Home";
+import Home from "./Pages/Home";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -4,18 +4,29 @@ import { IoStarSharp } from "react-icons/io5";
 import { LuLogOut, LuNotebookText } from "react-icons/lu";
 import { MdOutlineAssignmentInd } from "react-icons/md";
 import { TbBrandPlanetscale } from "react-icons/tb";
+import TodayTasks from "./TodayTask";
+
+
+const tasks = [
+    { id: 1, name: "Task 1", completed: true },
+    { id: 2, name: "Task 2", completed: false },
+    { id: 3, name: "Task 3", completed: true },
+    { id: 4, name: "Task 4", completed: true },
+    { id: 5, name: "Task 5", completed: false },
+    { id: 6, name: "Task 6", completed: true },
+];
 
 const Sidebar = ({ onLogout, user }) => {
     return (
-        <aside className="w-full hidden sm:w-80 bg-white dark:bg-[#2c2c2c] shadow-md min-h-screen sm:flex flex-col justify-between">
-            <div className="">
+        <aside className="w-[250px] bg-white dark:bg-[#2c2c2c] shadow-md min-h-screen flex-col justify-between">
+            <div className="w-[240px]">
                 <div className="p-6 text-center relative pt-5">
                     <img
-                        src="https://picsum.photos/200/300"
+                        src="https://i.ibb.co.com/Y8zbHGL/jonas-kakaroto-KIPqvv-TOC1s-unsplash.jpg"
                         alt="Profile"
-                        className="w-20 h-20 rounded-full absolute -top-10 left-[50%] transform -translate-x-1/2 border-2 dark:border-gray-800"
+                        className="w-24 h-24 rounded-full bg-cover bg-center absolute -top-10 left-[50%] transform -translate-x-1/2 border-2 dark:border-gray-800"
                     />
-                    <h2 className="text-lg font-semibold mt-8 text-gray-900 dark:text-gray-200">
+                    <h2 className="text-lg font-semibold mt-10 text-gray-900 dark:text-gray-200">
                         Hey, {user}
                     </h2>
                 </div>
@@ -78,39 +89,7 @@ const Sidebar = ({ onLogout, user }) => {
                     </div>
                 </div>
                 <div className="mt-8 mx-4 p-4 bg-gray-100 dark:bg-[#232323] rounded-lg text-center">
-                    <h3 className="text-sm font-semibold mb-2 text-gray-900 dark:text-gray-200">
-                        Today Tasks
-                    </h3>
-                    <div className="w-24 h-24 mx-auto relative">
-                        <svg
-                            viewBox="0 0 36 36"
-                            className="w-full h-full mx-auto"
-                        >
-                            <circle
-                                cx="18"
-                                cy="18"
-                                r="15.915"
-                                fill="none"
-                                stroke="#4caf50"
-                                strokeWidth="3.8"
-                                strokeDasharray="75, 100"
-                            ></circle>
-                            <text
-                                x="50%"
-                                y="50%"
-                                dominantBaseline="central"
-                                textAnchor="middle"
-                                fontSize="10px"
-                                fontWeight="bold"
-                                className="fill-current text-gray-900 dark:text-gray-200"
-                            >
-                                11
-                            </text>
-                        </svg>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        Pending & Done
-                    </p>
+                    <TodayTasks tasks={tasks} />
                 </div>
 
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { FaBell, FaCalendarAlt, FaPlus, FaSyncAlt } from "react-icons/fa";
 import { IoMdCheckbox } from "react-icons/io";
@@ -7,7 +8,7 @@ import "react-calendar/dist/Calendar.css";
 import { toast } from "react-toastify";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const TextSection = () => {
+const TextSection = ({ isGridLayout }) => {
     const [taskInput, setTaskInput] = useState("");
     const [pendingTasks, setPendingTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
@@ -82,7 +83,7 @@ const TextSection = () => {
                         onChange={(e) => setTaskInput(e.target.value)}
                         className="text-gray-800 mt-10 outline-none bg-transparent dark:text-gray-200 text-lg font-medium"
                         onKeyPress={(e) => {
-                            if (e.key === "Enter") handleAddTask(); // Add task on Enter key
+                            if (e.key === "Enter") handleAddTask();
                         }}
                     />
                     <div className="flex justify-between items-center">
@@ -105,12 +106,17 @@ const TextSection = () => {
                 <section className="w-full">
                     {/* Pending Tasks */}
                     <h2 className="text-lg font-semibold mb-4">Pending Tasks</h2>
-                    <ul className="space-y-8 w-full font-medium">
+                    <ul
+                        className={`${isGridLayout
+                                ? "grid grid-cols-2 md:grid-cols-3 gap-4"
+                                : "space-y-8"
+                            } w-full font-medium`}
+                    >
                         {pendingTasks.length === 0 ? (
                             <p>No pending tasks</p>
                         ) : (
                             pendingTasks.map((task, index) => (
-                                <li key={index}>
+                                <li key={index} className="bg-transparent p-4 rounded shadow">
                                     <div className="flex justify-between items-center">
                                         <div
                                             className="flex justify-start items-center gap-3 cursor-pointer"
@@ -157,7 +163,7 @@ const TextSection = () => {
 
             {/* Task Sidebar */}
             {selectedTask && (
-                <aside className="w-80 flex flex-col justify-between  bg-gray-100 dark:bg-[#2c2c2c] min-h-screen p-4 shadow-md">
+                <aside className="w-80 md:static md:block absolute top-0 right-0 z-50 flex flex-col justify-between  bg-gray-100 dark:bg-[#2c2c2c] min-h-screen p-4 shadow-md">
                     <div>
                         <div className="flex justify-between items-center border-b border-gray-300 dark:border-gray-600 py-4">
                             <div className="flex w-full justify-between items-center text-lg font-semibold text-gray-900 dark:text-gray-200">

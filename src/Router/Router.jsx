@@ -11,10 +11,6 @@ import App from "../App";
           index: true,
           element: <App />,
         },
-        {
-          path: "/schedule",
-          // element: <SchedulePage />,
-        },
       ],
     },
   ]);

@@ -7,7 +7,7 @@ const Login = ({ onLogin }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === "admin" && password === "1234") {
+    if (username === "admin" && password === "12345") {
       onLogin(username);
     } else {
       alert("Invalid username or password!");
@@ -20,14 +20,14 @@ const Login = ({ onLogin }) => {
       <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <input
           type="text"
-          placeholder="Username"
+          placeholder="admin"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="p-2 rounded-md bg-gray-300 dark:bg-gray-600 border-2 border-green-200"
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="12345"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="p-2 rounded-md bg-gray-300 dark:bg-gray-600 border-2 border-green-200"

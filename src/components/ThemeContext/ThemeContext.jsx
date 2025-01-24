@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme); // Persist theme in localStorage
+    localStorage.setItem("theme", theme); 
   }, [theme]);
 
   const toggleTheme = () => {
