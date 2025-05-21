@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { BsMoonStars } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
@@ -9,8 +8,9 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { TfiMenuAlt } from "react-icons/tfi";
 import TextSection from "../components/TextSection";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
-const Home = ({ onLogout, user }) => {
+const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [showSidebar, setShowSidebar] = useState(true);
   const [isGridLayout, setIsGridLayout] = useState(false);
@@ -51,6 +51,12 @@ const Home = ({ onLogout, user }) => {
                 <BsMoonStars size={20} />
               )}
             </button>
+            {/* Authentication */}
+            <Link to ="/login"
+              className="btn bg-[#ccf2d1] hover:bg-[#defae1] dark:bg-green-700 font-semibold text-green-800 dark:text-gray-100 text-lg px-4 border-none rounded-lg"
+            >
+              Login
+            </Link>
           </div>
         </header>
 
@@ -59,7 +65,7 @@ const Home = ({ onLogout, user }) => {
           {/* Sidebar */}
           {showSidebar && (
             <div className="lg:static lg:block absolute top-0 left-0 z-50 bg-gray-100 dark:bg-[#242424] lg:bg-transparent">
-              <Sidebar onLogout={onLogout} user={user} />
+              <Sidebar />
             </div>
           )}
 
